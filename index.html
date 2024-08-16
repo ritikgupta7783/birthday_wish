@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+
+</head>
+<body>
+    <!-- Input Form -->
+    <div id="input-form" class="form-container">
+        <h2>Enter Birthday Details</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter name">
+        <label for="birthday">Birthday (dd/mm/yyyy):</label>
+        <input type="text" id="birthday" placeholder="Enter birthday">
+        <button onclick="handleFormSubmission()">Submit & Get Shareable Link</button>
+        <p id="share-link-container" class="hidden">
+            Share this link: <input type="text" id="share-link" readonly> 
+            <button onclick="copyShareLink()">Copy Link</button>
+        </p>
+    </div>
+
+    <!-- Surprise Page -->
+    <div id="surprise-page" class="hidden">
+        <div class="left-side">
+            <h1 id="wish-message"></h1>
+            <div id="date-display"></div>
+            <h2 id="birthday-quote">"Cheers to another year of laughter, love, and unforgettable memories with you, my dear friend. Happy birthday!"</h2>
+        </div>
+        <div class="right-side">
+            <div class="cake">
+                <div class="layer layer-bottom"></div>
+                <div class="layer layer-middle"></div>
+                <div class="layer layer-top"></div>
+                <div class="candle-container">
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+                </div>
+                <div class="base"></div>
+            </div>
+            <div id="balloons-container"></div>
+        </div>
+        <div id="glitter-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

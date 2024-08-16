@@ -1,0 +1,264 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Pacifico', cursive; /* Birthday-themed font */
+    background-color: #f5f5f5;
+    overflow: hidden;
+    position: relative;
+}
+
+.hidden {
+    display: none;
+}
+
+.form-container {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+input[type="text"], input[type="date"] {
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+    max-width: 300px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #3498db;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+#share-link-container {
+    margin-top: 20px;
+}
+
+/* Surprise Page Layout */
+#surprise-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+    flex-direction: column;
+    position: relative;
+}
+
+.left-side {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Ensure it is behind balloons */
+}
+
+.right-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1; /* Ensure it is behind balloons */
+    margin-top: 50px; /* Adjusts cake position */
+}
+
+#wish-message {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+#date-display {
+    font-size: 24px;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+#birthday-quote {
+    font-size: 18px;
+    color: #34495e;
+    margin-top: 20px;
+}
+
+/* Cake Design */
+.cake {
+    position: relative;
+    width: 180px;
+    height: 250px;
+    z-index: 2; /* Ensure it is behind balloons but in front of text */
+}
+
+.layer {
+    width: 100%;
+    height: 30%;
+    border-radius: 20px;
+    position: absolute;
+    background-color: #ff9999;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border: 5px solid #e57373;
+}
+
+.layer-bottom {
+    bottom: 0;
+}
+
+.layer-middle {
+    bottom: 30%;
+    background-color: #ff6666;
+}
+
+.layer-top {
+    bottom: 60%;
+    background-color: #ff4d4d;
+}
+
+.candle-container {
+    position: absolute;
+    top: -30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.candle {
+    width: 20px;
+    height: 50px;
+    background-color: #ffe6e6;
+    position: relative;
+    border-radius: 10px;
+}
+
+.flame {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 20px;
+    background-color: #ffeb3b;
+    border-radius: 50%;
+    animation: flicker 1s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.2); }
+    100% { transform: translateX(-50%) scale(1); }
+}
+
+.base {
+    position: absolute;
+    bottom: -20px;
+    width: 90%;
+    height: 25px;
+    background-color: #cc3300;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Balloons */
+#balloons-container {
+    position: fixed; /* Changed to fixed to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 3; /* Ensure balloons are in front of everything */
+    pointer-events: none; /* Prevents interaction with balloons */
+}
+
+.balloon {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    background-color: #e74c3c;
+    border-radius: 50% 50% 45% 45%; /* Rounded balloon shape */
+    animation: floatUp 6s ease-in-out infinite;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-150vh);
+        opacity: 0;
+    }
+}
+
+/* Glitter */
+#glitter-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2; /* Ensure glitter is behind balloons but in front of everything else */
+}
+
+.glitter {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #f39c12;
+    border-radius: 50%;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    #surprise-page {
+        flex-direction: column;
+    }
+
+    .left-side, .right-side {
+        width: 100%;
+    }
+
+    .cake {
+        width: 150px;
+        height: 200px;
+    }
+
+    #wish-message {
+        font-size: 28px;
+    }
+
+    #date-display {
+        font-size: 20px;
+    }
+
+    #birthday-quote {
+        font-size: 16px;
+    }
+}
